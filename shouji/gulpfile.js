@@ -9,7 +9,8 @@ gulp.task('default', function () {
     //找到src目录下app.css，为其补全浏览器兼容的css
     return gulp.src('index.css')
         .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
+            /*browsers: ['last 2 versions'],*/
+            "Major Browsers":['iOS or ios_saf for iOS Safari.'],
             cascade: false
         }))
         //输出到dist文件夹

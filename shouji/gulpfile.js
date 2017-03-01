@@ -10,7 +10,7 @@ gulp.task('default', function () {
     return gulp.src('index.css')
         .pipe(autoprefixer({
             /*browsers: ['last 2 versions'],*/
-            "Major Browsers":['iOS or ios_saf for iOS Safari.'],
+            "Major Browsers":['iOS','Chrome ','Firefox ','Explorer ','Edge ','Opera ','Safari ','ExplorerMobile '],
             cascade: false
         }))
         //输出到dist文件夹

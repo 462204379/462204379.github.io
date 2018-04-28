@@ -429,6 +429,15 @@ option2 = {
         {
             name:'最新成交价',
             type:'line',
+            color:"#6695C3",
+            itemStyle:{
+                normal:{
+                    lineStyle:{
+                        width:1.5,
+                        type:'solid'  //'dotted'虚线 'solid'实线
+                    }
+                }
+            },
             data:(function (){
                 var res = [];
                 var len = 0;

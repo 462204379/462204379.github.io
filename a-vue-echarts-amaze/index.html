@@ -144,6 +144,139 @@
 <script src="./js/vue.min.js"></script>
 <script src="./js/echarts.min.js"></script>
 <script>
+  var jsonpdata={
+    "data1":{
+    "name1":[{
+      "value":"335",
+      "name":"直达",
+      "selected":true
+    },{
+      "value":"335",
+      "name":"营销广告"
+    },
+      {
+        "value":"335",
+        "name":"搜索引擎"
+      }
+    ],
+            "name2":[{
+      "value":"335",
+      "name":"邮件营销"
+    },{
+      "value":"335",
+      "name":"联盟广告"
+    },
+      {
+        "value":"335",
+        "name":"视频广告"
+      },
+      {
+        "value":"335",
+        "name":"百度"
+      },{
+        "value":"335",
+        "name":"谷歌"
+      },
+      {
+        "value":"335",
+        "name":"必应"
+      },
+      {
+        "value":"335",
+        "name":"其他"
+      }
+    ]
+  },
+    "data2":{
+    "name1":[{
+      "value":"100",
+      "name":"直达"
+
+    },{
+      "value":"300",
+      "name":"营销广告",
+      "selected":true
+    },
+      {
+        "value":"160",
+        "name":"搜索引擎"
+      }
+    ],
+            "name2":[{
+      "value":"260",
+      "name":"邮件营销"
+    },{
+      "value":"335",
+      "name":"联盟广告"
+    },
+      {
+        "value":"230",
+        "name":"视频广告"
+      },
+      {
+        "value":"335",
+        "name":"百度"
+      },{
+        "value":"150",
+        "name":"谷歌"
+      },
+      {
+        "value":"339",
+        "name":"必应"
+      },
+      {
+        "value":"210",
+        "name":"其他"
+      }
+    ]
+  },
+    "data3":{
+    "name1":[{
+      "value":"196",
+      "name":"直达"
+
+    },{
+      "value":"280",
+      "name":"营销广告"
+
+    },
+      {
+        "value":"169",
+        "name":"搜索引擎",
+        "selected":true
+      }
+    ],
+            "name2":[{
+      "value":"333",
+      "name":"邮件营销"
+    },{
+      "value":"284",
+      "name":"联盟广告"
+    },
+      {
+        "value":"320",
+        "name":"视频广告"
+      },
+      {
+        "value":"325",
+        "name":"百度"
+      },{
+        "value":"145",
+        "name":"谷歌"
+      },
+      {
+        "value":"605",
+        "name":"必应"
+      },
+      {
+        "value":"60",
+        "name":"其他"
+      }
+    ]
+  }
+  }
+</script>
+<script>
   /*创建自定义组件*/
   Vue.component('bar',{
     template:' <header class="header" >\
@@ -211,49 +344,12 @@ $(function(){
 </script>
 
 <script type="text/javascript">
+
   var dom = document.getElementById("main");
   var myChart = echarts.init(dom);
   var option1;
   var datas1=[];
   var datas2=[];
-  pagedata(1)
-  function pagedata(index){
-     datas1=[];
-     datas2=[];
-    $.ajax({
-      type: "post",
-      url: "tsconfig.json",
-      success: function(data) {
-        var datas="data"+index;
-        $.each(data,function(i,v){
-          if(datas==i){
-            data=v;
-          }
-        })
-        $.each(data.name1,function(i,v){
-          var obj={}
-          obj={
-            name:v.name,
-            value:v.value,
-            selected:v.selected
-          }
-          datas1.push(obj)
-        })
-        $.each(data.name2,function(i,v){
-          var obj={}
-          obj={
-            name:v.name,
-            value:v.value,
-          }
-          datas2.push(obj)
-        })
-        option1.series[0].data=datas1;
-        option1.series[1].data=datas2;
-        myChart.setOption(option1);
-      }
-    });
-
-  }
   option1 = {
     toolbox: {
       show : true,
@@ -346,6 +442,39 @@ $(function(){
       }
     ]
   };
+  pagedata(1)
+  function pagedata(index){
+     datas1=[];
+     datas2=[];
+
+        var datas="data"+index;
+        $.each(jsonpdata,function(i,v){
+          if(datas==i){
+            datas=v;
+          }
+        })
+        $.each(datas.name1,function(i,v){
+          var obj={}
+          obj={
+            name:v.name,
+            value:v.value,
+            selected:v.selected
+          }
+          datas1.push(obj)
+        })
+        $.each(datas.name2,function(i,v){
+          var obj={}
+          obj={
+            name:v.name,
+            value:v.value,
+          }
+          datas2.push(obj)
+        })
+        option1.series[0].data=datas1;
+        option1.series[1].data=datas2;
+        myChart.setOption(option1);
+  }
+
 
 </script>
 <script>
@@ -461,5 +590,6 @@ $(function(){
 
 
 </script>
+
 </body>
 </html>

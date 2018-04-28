@@ -1,0 +1,465 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>数据后端管理</title>
+  <meta name="description" content="这是一个 table 页面">
+  <meta name="keywords" content="table">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<header class="am-topbar am-topbar-inverse admin-header">
+  <div class="am-topbar-brand">
+    <strong>数据</strong> <small>后台管理模板</small>
+  </div>
+
+  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
+          <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
+          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+        </ul>
+      </li>
+      <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+      <ul class="am-list admin-sidebar-list">
+        <li><a href="#"><span class="am-icon-home"></span> 首页</a></li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 页面模块 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
+            <li><a href="" class="am-cf"><span class="am-icon-check"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+            <li><a href=""><span class="am-icon-puzzle-piece"></span> 帮助页</a></li>
+            <li><a href=""><span class="am-icon-th"></span> 相册页面<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
+            <li><a href=""><span class="am-icon-calendar"></span> 系统日志</a></li>
+            <li><a href=""><span class="am-icon-bug"></span> 404</a></li>
+          </ul>
+        </li>
+        <li><a href="admin-table.html"><span class="am-icon-table"></span> 表格</a></li>
+        <li><a href=""><span class="am-icon-pencil-square-o"></span> 表单</a></li>
+        <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
+      </ul>
+
+      <div class="am-panel am-panel-default admin-sidebar-panel">
+        <div class="am-panel-bd">
+          <p><span class="am-icon-bookmark"></span> 公告</p>
+          <p>没有后端支持，暂时没有搜索功能，数据纯js自动生成或请求JSON文件。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content" id="appmain">
+    <div class="admin-content-body">
+      <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">表格</strong> / <small>数据图表</small></div>
+      </div>
+
+      <hr>
+
+      <div class="am-g">
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-form-group">
+
+            <select data-am-selected="{btnSize: 'sm'}" v-model="values" v-on:change="changeData(values)">
+              <option v-for="item in value" :value="item.val">{{ item.name }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="am-u-sm-12 am-u-md-3">
+          <button v-on:click="changeData2" class="am-btn am-btn-default">切换图表</button>
+        </div>
+        <div class="am-u-sm-12 am-u-md-3">
+          <p>{{ message }}</p>
+        </div>
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-input-group am-input-group-sm">
+            <input type="text" class="am-form-field" v-model="message">
+          <span class="am-input-group-btn">
+            <button class="am-btn am-btn-default" type="button"  v-on:click="changeData">搜索</button>
+          </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="am-g">
+        <div class="am-u-sm-12">
+          <form class="am-form">
+            <table class="am-table am-table-striped am-table-hover table-main">
+              <bar :title="'数据图表'" :back="true"></bar>
+              <div class="am-u-sm-12 am-u-md-12" id="main" style="width: 100%;height:400px;"></div>
+            </table>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="admin-content-footer">
+      <hr>
+      <p class="am-padding-left">© 2018 AllMobilize, Inc. Licensed under MIT license.</p>
+    </footer>
+
+  </div>
+  <!-- content end -->
+</div>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="./js/vue.min.js"></script>
+<script src="./js/echarts.min.js"></script>
+<script>
+  /*创建自定义组件*/
+  Vue.component('bar',{
+    template:' <header class="header" >\
+        <h3 class="title">{{title}}</h3>\
+            </header>',
+    /*对外公开的属性,父级控件可以指定*/
+    props:['back','title']
+  })
+
+  var interval;
+  // 这是我们的Model
+  var exfunction=function (index) {
+    pagedata(index);
+    console.log(option1.series[0].data)
+  };
+  var exfunction2=function () {
+    $(".am-selected-list li").unbind("click");
+    window.clearTimeout(interval);
+    app2.count = 11;
+    interval=setInterval(function (){
+      axisData = (new Date()).toLocaleTimeString().replace(/^\D*/,'');
+      var data0 = option2.series[0].data;
+      var data1 = option2.series[1].data;
+      data0.shift();
+      data0.push(Math.round(Math.random() * 1000));
+      data1.shift();
+      data1.push((Math.random() * 10 + 5).toFixed(1) - 0);
+
+      option2.xAxis[0].data.shift();
+      option2.xAxis[0].data.push(axisData);
+      option2.xAxis[1].data.shift();
+      option2.xAxis[1].data.push(app2.count++);
+
+      myChart.setOption(option2);
+    }, 2000);
+    ;
+    if (option2 && typeof option2 === "object") {
+      myChart.setOption(option2, true);
+    }
+    myChart.setOption(option2);
+  };
+  var app1 = new Vue({
+    el: '#appmain',
+    data: function(){
+      return{
+        message:"暂无搜索数据",
+        values:"1",
+        value:[
+          {val:"1",name:"图表一"},
+          {val:"2",name:"图表二"},
+          {val:"3",name:"图表三"}
+        ]
+      }
+    },
+    methods: {
+      changeData: exfunction,
+      changeData2: exfunction2
+    }
+  })
+$(function(){
+  $(".am-selected-list li").on("click",function(){
+    pagedata($(this).data("value"));
+  })
+})
+</script>
+
+<script type="text/javascript">
+  var dom = document.getElementById("main");
+  var myChart = echarts.init(dom);
+  var option1;
+  var datas1=[];
+  var datas2=[];
+  pagedata(1)
+  function pagedata(index){
+     datas1=[];
+     datas2=[];
+    $.ajax({
+      type: "post",
+      url: "tsconfig.json",
+      success: function(data) {
+        var datas="data"+index;
+        $.each(data,function(i,v){
+          if(datas==i){
+            data=v;
+          }
+        })
+        $.each(data.name1,function(i,v){
+          var obj={}
+          obj={
+            name:v.name,
+            value:v.value,
+            selected:v.selected
+          }
+          datas1.push(obj)
+        })
+        $.each(data.name2,function(i,v){
+          var obj={}
+          obj={
+            name:v.name,
+            value:v.value,
+          }
+          datas2.push(obj)
+        })
+        option1.series[0].data=datas1;
+        option1.series[1].data=datas2;
+        myChart.setOption(option1);
+      }
+    });
+
+  }
+  option1 = {
+    toolbox: {
+      show : true,
+      feature : {
+        mark : {show: true},
+        dataView : {show: true, readOnly: false},
+        magicType : {show: true, type: ['line', 'bar']},
+        restore : {show: true},
+        saveAsImage : {show: true}
+      }
+    },
+    calculable : true,
+    tooltip: {
+      trigger: 'item',
+      formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+      orient: 'vertical',
+      x: 'left',
+      data:['直达','营销广告','搜索引擎','邮件营销','联盟广告','视频广告','百度','谷歌','必应','其他']
+    },
+    series: [
+      {
+        name:'访问来源',
+        type:'pie',
+        selectedMode: 'single',
+        radius: [0, '30%'],
+
+        label: {
+          normal: {
+            position: 'inner'
+          }
+        },
+        labelLine: {
+          normal: {
+            show: false
+          }
+        },
+        data:datas1
+      },
+      {
+        name:'访问来源',
+        type:'pie',
+        radius: ['40%', '55%'],
+        label: {
+          normal: {
+            formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+            backgroundColor: '#eee',
+            borderColor: '#aaa',
+            borderWidth: 1,
+            borderRadius: 4,
+            /*   shadowBlur:3,
+             shadowOffsetX: 2,
+             shadowOffsetY: 2,
+             shadowColor: '#999',
+             padding: [0, 7],*/
+            rich: {
+              a: {
+                color: '#999',
+                lineHeight: 22,
+                align: 'center'
+              },
+              // abg: {
+              //     backgroundColor: '#333',
+              //     width: '100%',
+              //     align: 'right',
+              //     height: 22,
+              //     borderRadius: [4, 4, 0, 0]
+              // },
+              hr: {
+                borderColor: '#aaa',
+                width: '100%',
+                borderWidth: 0.5,
+                height: 0
+              },
+              b: {
+                fontSize: 16,
+                lineHeight: 33
+              },
+              per: {
+                color: '#eee',
+                backgroundColor: '#334455',
+                padding: [2, 4],
+                borderRadius: 2
+              }
+            }
+          }
+        },
+        data:datas2
+      }
+    ]
+  };
+
+</script>
+<script>
+
+  var app2 = {};
+  option2 = null;
+  option2 = {
+    title: {
+      text: '动态数据',
+      subtext: '纯属虚构'
+    },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'cross',
+        label: {
+          backgroundColor: '#283b56'
+        }
+      }
+    },
+    legend: {
+      data:['最新成交价', '预购队列']
+    },
+    toolbox: {
+      show: true,
+      feature: {
+        dataView: {readOnly: false},
+        saveAsImage: {}
+      }
+    },
+    dataZoom: {
+      show: false,
+      start: 0,
+      end: 100
+    },
+    xAxis: [
+      {
+        type: 'category',
+        boundaryGap: true,
+        data: (function (){
+          var now = new Date();
+          var res = [];
+          var len = 10;
+          while (len--) {
+            res.unshift(now.toLocaleTimeString().replace(/^\D*/,''));
+            now = new Date(now - 2000);
+          }
+          return res;
+        })()
+      },
+      {
+        type: 'category',
+        boundaryGap: true,
+        data: (function (){
+          var res = [];
+          var len = 10;
+          while (len--) {
+            res.push(len + 1);
+          }
+          return res;
+        })()
+      }
+    ],
+    yAxis: [
+      {
+        type: 'value',
+        scale: true,
+        name: '价格',
+        max: 30,
+        min: 0,
+        boundaryGap: [0.2, 0.2]
+      },
+      {
+        type: 'value',
+        scale: true,
+        name: '预购量',
+        max: 1200,
+        min: 0,
+        boundaryGap: [0.2, 0.2]
+      }
+    ],
+    series: [
+      {
+        name:'预购队列',
+        type:'bar',
+        xAxisIndex: 1,
+        yAxisIndex: 1,
+        data:(function (){
+          var res = [];
+          var len = 10;
+          while (len--) {
+            res.push(Math.round(Math.random() * 1000));
+          }
+          return res;
+        })()
+      },
+      {
+        name:'最新成交价',
+        type:'line',
+        data:(function (){
+          var res = [];
+          var len = 0;
+          while (len < 10) {
+            res.push((Math.random()*10 + 5).toFixed(1) - 0);
+            len++;
+          }
+          return res;
+        })()
+      }
+    ]
+  };
+
+
+
+</script>
+</body>
+</html>

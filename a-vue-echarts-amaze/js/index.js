@@ -413,6 +413,7 @@ option2 = {
             },
             name:'预购队列',
             type:'bar',
+            barMaxWidth: '50',
             xAxisIndex: 1,
             yAxisIndex: 1,
             data:(function (){

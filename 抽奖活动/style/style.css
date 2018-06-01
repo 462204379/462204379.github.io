@@ -1,0 +1,23 @@
+*{margin:0;padding:0;}
+html{width:100%;height: 100%;}
+.bg{width:100%;max-width:1920px;height: 100%;position: relative;}
+.bg img{width:100%;height: 100%;}
+.box{width:80%;max-width:1000px;margin:auto;text-align:center;position: absolute;top:30%;left:0;right:0;}
+.jz{float:left;width:420px;height:auto;margin:auto;padding-left:150px;}
+.jz p{line-height:80px;text-align:center;font-size:50px;color:#ffffff;margin-top: 20px;}
+.jz span{display: block;width:420px;height:90px;line-height:90px;margin-top:20px;text-align:left;font-size:40px;color: #fff;padding-left: 30px;}
+.start,.stop{width:200px;height:80px;line-height:80px;text-align:center;font-size:50px;border-radius:9px;margin:auto;color:#ffffff;cursor: pointer;}
+.start{background: #ffd21d;}
+.stop{background: #FC6666;}
+
+.zjmd{float:right;width:300px;height: 450px;margin-top:30px;margin-left:30px;background: #ffffff;}
+.zjmd .p1{line-height:40px;text-align:center;font-size:20px;padding:0;margin-top: 40px;color: #ffffff;position: fixed;  width: 300px;}
+.zjmd p{line-height:30px;text-align:left;text-align:justify;padding-left:45px;color: #fff; font-size: 18px;}
+.list::-webkit-scrollbar {
+    display: none;
+}
+.list{
+    margin-top: 75px;
+    height: 325px;
+    overflow-y: auto;
+}

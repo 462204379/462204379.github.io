@@ -102,16 +102,16 @@
      <!--   <h1 class="wow bounceInDown">{{text}}</h1>-->
     </div>
     <div class="row" v-for="item in maindata">
-	<a :href="item.tburl">
+	
         <div class="wow bounceInRight list">
-            <div class="left"><img :src="item.url" alt=""></div>
+            <div class="left"><a :href="item.url"><img :src="item.url" alt=""></a></div>
             <div class="right">
-                <div class="flex"><span>产品名称：</span><span class="namecolor">{{item.name}}</span></div>
+                <div class="flex"><span><a :href="item.tburl">产品名称：</span><span class="namecolor">{{item.name}}</span></a></div>
                 <div class="flex"><span class="">内购价格：</span><span class="color">￥</span><span class="ngmoney">{{item.ngmoney}}</span></div>
                 <div class="flex"><span class="">淘宝价格：</span><span class="color2">￥</span><span class="tbmoney">{{item.tbmoney}}</span></div>
             </div>
         </div>
-	</a>	
+		
     </div>
     </template>
 </div>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8">
+    <title>公司内购产品</title>
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1， user-scalable=no,minimal-ui" servergenerated="true">
+    <link rel="stylesheet" href="js/animate.css">
+    <style>
+        * { margin: 0; padding: 0;}
+        html{
+            overflow-x: hidden;
+            background: #F1F4F5;
+            width: 100%;
+            height: 100%;
+            font-size: 14px;
+        }
+        body h1 {
+            width: 100%;
+            margin: 20px 0;
+            font-size: 20px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .row{
+            margin: 20px;
+        }
+        .list {
+            padding: 10px;
+            background: #fff;
+            font-size: 0;
+            display: flex;
+        }
+        .list img{
+            height: auto;
+            width: 80%;
+            margin-left: 10%;
+        }
+        .left, .right{
+            font-size: 14px;
+        }
+        .left{
+            width: 30%;
+            height: auto;
+            display: inline-block;
+        }
+        .right{
+            width: 70%;
+            display: inline-block;
+            padding-left: 10px;
+        }
+        .ngmoney{
+            font-size: 20px;
+            color: #ff5000;
+        }
+        .tbmoney{
+            color: #999;
+            margin-left: 6px;
+            text-decoration: line-through;
+        }
+        .color{
+            color: #ff5000;
+        }
+        .color2{
+            color: #999;
+        }
+        .namecolor{
+            color: #ff5000;
+        }
+        /*下面两个是核心样式*/
+        .beat-char {
+            line-height: 3.5em;
+            position: relative;
+            display: inline-block;
+            background: transparent;
+
+        }
+
+        .rotate{
+            transform:rotate(360deg) ;
+            -ms-transform:rotate(360deg); 	/* IE 9 */
+            -moz-transform:rotate(360deg); 	/* Firefox */
+            -webkit-transform:rotate(360deg); /* Safari 和 Chrome */
+            -o-transform:rotate(360deg);
+            -webkit-transition-duration: 0.7s;
+            color: #ff5000;
+        }
+        #autoRotateText{
+            text-align: center;
+            font-weight: normal;
+            font-size: 22px;
+            color: #222;
+        }
+    </style>
+</head>
+
+<body>
+<div id="vueapp">
+    <template>
+    <div class="row">
+        <div class="container">
+            <p id="autoRotateText">{{text}}</p>
+        </div>
+     <!--   <h1 class="wow bounceInDown">{{text}}</h1>-->
+    </div>
+    <div class="row" v-for="item in maindata">
+        <div class="wow bounceInRight list">
+            <div class="left"><a :href="item.url"><img :src="item.url" alt=""></a></div>
+            <div class="right">
+                <div class="flex"><span>产品名称：</span><span class="namecolor">{{item.name}}</span></div>
+                <div class="flex"><span class="">内购价格：</span><span class="color">￥</span><span class="ngmoney">{{item.ngmoney}}</span></div>
+                <div class="flex"><span class="">淘宝价格：</span><span class="color2">￥</span><span class="tbmoney">{{item.tbmoney}}</span></div>
+            </div>
+        </div>
+    </div>
+    </template>
+</div>
+
+<script src="js/wow.min.js"></script>
+<script src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.beattext.js"></script>
+<script type="text/javascript" src="js/easying.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $('p#autoRotateText').beatText({isAuth:true,upTime:700,downTime:700,beatHeight:"2em",isRotate:true});
+
+    });
+
+</script>
+<script>
+    new Vue({
+        el: '#vueapp',
+        data: function () {
+            return {
+                text: "内购产品,让价格更实惠！",
+                maindata: [
+                    {name:"Braun 德国博朗7865cc 电动剃须刀",url:"img/01.webp",ngmoney:"799",tbmoney:"999"},
+                    {name:"Braun 德国博朗5系5147 电动剃须刀",url:"img/02.jpg",ngmoney:"499",tbmoney:"699"},
+                    {name:"Braun 德国博朗5系5030s 电动剃须刀",url:"img/03.webp",ngmoney:"489",tbmoney:"699"},
+                    {name:"Braun 德国博朗3系3050cc 电动剃须刀",url:"img/04.jpg",ngmoney:"300",tbmoney:"329"},
+                    {name:"Braun 德国博朗3系3010 电动剃须刀",url:"img/05.webp",ngmoney:"259",tbmoney:"299"},
+                    {name:"Braun 德国博朗190 黑色电动剃须刀",url:"img/06.webp",ngmoney:"149",tbmoney:"199"},
+                    {name:"Braun 德国博朗140 电动剃须刀",url:"img/07.jpg",ngmoney:"149",tbmoney:"199"},
+                    {name:"Braun 德国博朗M-60s 电动剃须刀",url:"img/08.jpg",ngmoney:"99",tbmoney:"149"},
+                    {name:"Braun 德国博朗BD5001脉冲光脱毛仪",url:"img/09.webp",ngmoney:"1399",tbmoney:"1699"},
+                    {name:"Braun 德国博朗BR730炫发离子发",url:"img/10.webp",ngmoney:"169",tbmoney:"219"},
+                    {name:"Oral-B D12.013清亮型电动牙刷",url:"img/11.jpg",ngmoney:"99",tbmoney:"138"},
+                    {name:"Oral-B D12.013亮杰型电动牙刷",url:"img/12.jpg",ngmoney:"149",tbmoney:"199"},
+                    {name:"博朗生活HM3000打蛋机",url:"img/13.jpg",ngmoney:"239",tbmoney:"289"},
+                    {name:"Kenwood Hm520打蛋机",url:"img/14.jpg",ngmoney:"219",tbmoney:"269"},
+                    {name:"Kenwood HM220打蛋机",url:"img/15.jpg",ngmoney:"179",tbmoney:"228"},
+                    {name:"Kenwood SMM650WH华夫饼机",url:"img/16.jpg",ngmoney:"499",tbmoney:"599"},
+                    {name:"Kenwood KMC510厨师机",url:"img/17.jpg",ngmoney:"1999",tbmoney:"2390"},
+                    {name:"KenwoodAid 5QT厨师机",url:"img/18.webp",ngmoney:"1999",tbmoney:"2250"},
+                    {name:"KenwoodAid 7QT厨师机",url:"img/19.jpg",ngmoney:"2499",tbmoney:"2999"},
+                    {name:"KenwoodAid 1585破壁料理机",url:"img/20.jpg",ngmoney:"699",tbmoney:"899"},
+                    {name:"KRUPS KB2080 迷你搅拌机",url:"img/21.jpg",ngmoney:"199",tbmoney:"259"}
+                ]
+            }
+        }
+    });
+    new WOW().init();
+</script>
+
+</body>
+</html>

@@ -102,14 +102,16 @@
      <!--   <h1 class="wow bounceInDown">{{text}}</h1>-->
     </div>
     <div class="row" v-for="item in maindata">
+	<a :href="item.tburl">
         <div class="wow bounceInRight list">
-            <div class="left"><a :href="item.url"><img :src="item.url" alt=""></a></div>
+            <div class="left"><img :src="item.url" alt=""></div>
             <div class="right">
                 <div class="flex"><span>产品名称：</span><span class="namecolor">{{item.name}}</span></div>
                 <div class="flex"><span class="">内购价格：</span><span class="color">￥</span><span class="ngmoney">{{item.ngmoney}}</span></div>
                 <div class="flex"><span class="">淘宝价格：</span><span class="color2">￥</span><span class="tbmoney">{{item.tbmoney}}</span></div>
             </div>
         </div>
+	</a>	
     </div>
     </template>
 </div>
@@ -134,27 +136,27 @@
             return {
                 text: "内购产品,让价格更实惠！",
                 maindata: [
-                    {name:"Braun 德国博朗7865cc 电动剃须刀",url:"img/01.webp",ngmoney:"799",tbmoney:"999"},
-                    {name:"Braun 德国博朗5系5147 电动剃须刀",url:"img/02.jpg",ngmoney:"499",tbmoney:"699"},
-                    {name:"Braun 德国博朗5系5030s 电动剃须刀",url:"img/03.webp",ngmoney:"489",tbmoney:"699"},
-                    {name:"Braun 德国博朗3系3050cc 电动剃须刀",url:"img/04.jpg",ngmoney:"300",tbmoney:"329"},
-                    {name:"Braun 德国博朗3系3010 电动剃须刀",url:"img/05.webp",ngmoney:"259",tbmoney:"299"},
-                    {name:"Braun 德国博朗190 黑色电动剃须刀",url:"img/06.webp",ngmoney:"149",tbmoney:"199"},
-                    {name:"Braun 德国博朗140 电动剃须刀",url:"img/07.jpg",ngmoney:"149",tbmoney:"199"},
-                    {name:"Braun 德国博朗M-60s 电动剃须刀",url:"img/08.jpg",ngmoney:"99",tbmoney:"149"},
-                    {name:"Braun 德国博朗BD5001脉冲光脱毛仪",url:"img/09.webp",ngmoney:"1399",tbmoney:"1699"},
-                    {name:"Braun 德国博朗BR730炫发离子发",url:"img/10.webp",ngmoney:"169",tbmoney:"219"},
-                    {name:"Oral-B D12.013清亮型电动牙刷",url:"img/11.jpg",ngmoney:"99",tbmoney:"138"},
-                    {name:"Oral-B D12.013亮杰型电动牙刷",url:"img/12.jpg",ngmoney:"149",tbmoney:"199"},
-                    {name:"博朗生活HM3000打蛋机",url:"img/13.jpg",ngmoney:"239",tbmoney:"289"},
-                    {name:"Kenwood Hm520打蛋机",url:"img/14.jpg",ngmoney:"219",tbmoney:"269"},
-                    {name:"Kenwood HM220打蛋机",url:"img/15.jpg",ngmoney:"179",tbmoney:"228"},
-                    {name:"Kenwood SMM650WH华夫饼机",url:"img/16.jpg",ngmoney:"499",tbmoney:"599"},
-                    {name:"Kenwood KMC510厨师机",url:"img/17.jpg",ngmoney:"1999",tbmoney:"2390"},
-                    {name:"KenwoodAid 5QT厨师机",url:"img/18.webp",ngmoney:"1999",tbmoney:"2250"},
-                    {name:"KenwoodAid 7QT厨师机",url:"img/19.jpg",ngmoney:"2499",tbmoney:"2999"},
-                    {name:"KenwoodAid 1585破壁料理机",url:"img/20.jpg",ngmoney:"699",tbmoney:"899"},
-                    {name:"KRUPS KB2080 迷你搅拌机",url:"img/21.jpg",ngmoney:"199",tbmoney:"259"}
+                    {name:"Braun 德国博朗7865cc 电动剃须刀",url:"img/01.webp",ngmoney:"799",tbmoney:"999",tburl:"https://detail.tmall.com/item.htm?id=542577937049&ali_refid=a3_430673_1006:1103741221:N:%E5%8D%9A%E6%9C%97%E5%89%83%E9%A1%BB%E5%88%80:074c4745b5e110340be9be855d3fd6dd&ali_trackid=1_074c4745b5e110340be9be855d3fd6dd&spm=a2e15.8261149.07626516002.1&skuId=3261606564870"},
+                    {name:"Braun 德国博朗5系5147 电动剃须刀",url:"img/02.jpg",ngmoney:"499",tbmoney:"699",tburl:"https://detail.tmall.com/item.htm?id=553855540866&ali_refid=a3_430673_1006:1103741221:N:%E5%8D%9A%E6%9C%97%E5%89%83%E9%A1%BB%E5%88%80:bffe049f8bb44772d59623dbbd222f8e&ali_trackid=1_bffe049f8bb44772d59623dbbd222f8e&spm=a2e15.8261149.07626516002.2"},
+                    {name:"Braun 德国博朗5系5030s 电动剃须刀",url:"img/03.webp",ngmoney:"489",tbmoney:"699",tburl:"https://detail.tmall.com/item.htm?id=38646137541&ali_refid=a3_430673_1006:1103741221:N:%E5%89%83%E9%A1%BB%E5%88%80:d42e9f678f3e612f23b7d806ab813f89&ali_trackid=1_d42e9f678f3e612f23b7d806ab813f89&spm=a2e15.8261149.07626516002.1&skuId=64712736269"},
+                    {name:"Braun 德国博朗3系3050cc 电动剃须刀",url:"img/04.jpg",ngmoney:"399",tbmoney:"499",tburl:"https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.6.72d5434cZ0q7LI&id=551609271465&skuId=3535643142397&user_id=92889104&cat_id=2&is_b=1&rn=fe5e66e4d7d3ee5c04d7b65eeb935b22"},
+                    {name:"Braun 德国博朗3系3010 电动剃须刀",url:"img/05.webp",ngmoney:"299",tbmoney:"349",tburl:"https://detail.tmall.com/item.htm?id=527922408194&ali_refid=a3_430673_1006:1103741221:N:%E5%89%83%E9%A1%BB%E5%88%80:e9fdd8550ab79942697622c996e685ee&ali_trackid=1_e9fdd8550ab79942697622c996e685ee&spm=a2e15.8261149.07626516002.1"},
+                    {name:"Braun 德国博朗190 黑色电动剃须刀",url:"img/06.webp",ngmoney:"169",tbmoney:"249",tburl:"https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.1.3dc949ecozFmeH&id=13009004925&skuId=69491108666&user_id=749240762&cat_id=2&is_b=1&rn=15748f08fe2cebadaf945acb5fb5d034"},
+                    {name:"Braun 德国博朗140 电动剃须刀",url:"img/07.jpg",ngmoney:"149",tbmoney:"199",tburl:"https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.1.55d97146wvcR43&id=22116896496&skuId=52062029059&user_id=749240762&cat_id=2&is_b=1&rn=5c9cbd8e05f3ec5be38df052c6cb97d6"},
+                    {name:"Braun 德国博朗M-60s 电动剃须刀",url:"img/08.jpg",ngmoney:"99",tbmoney:"149",tburl:"https://chaoshi.detail.tmall.com/item.htm?spm=a220m.1000858.1000725.1.216e6a30Y1mHAd&id=549552547009&skuId=3341247444920&user_id=725677994&cat_id=2&is_b=1&rn=d41188801fdfc2a8a0aa15e74dcc2d0e"},
+                    {name:"Braun 德国博朗BD5001脉冲光脱毛仪",url:"img/09.webp",ngmoney:"1699",tbmoney:"2699",tburl:"https://detail.tmall.hk/hk/item.htm?spm=a220m.1000858.0.0.6ff26072LQTCU3&id=549483489475&skuId=3341433625980&is_b=1&cat_id=2&q=%B2%A9%C0%CA+bd+5001+%CD%D1%C3%AB%D2%C7"},
+                    {name:"Braun 德国博朗BR730炫发离子发",url:"img/10.webp",ngmoney:"199",tbmoney:"299",tburl:"https://detail.tmall.com/item.htm?spm=a220m.1000858.0.0.551c44f4euJcaH&id=15065400784&skuId=85926844731&is_b=1&cat_id=2&q=%B2%A9%C0%CA+br+730"},
+                    {name:"Oral-B D12.013清亮型电动牙刷",url:"img/11.jpg",ngmoney:"99",tbmoney:"138",tburl:"https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.1.28db7826LAS7Rw&id=535864871425&skuId=3916910159361&areaId=330100&user_id=2938780442&cat_id=2&is_b=1&rn=db7aa9ad30ed5afe134aba206e92d19b"},
+                    {name:"Oral-B D12.013亮杰型电动牙刷",url:"img/12.jpg",ngmoney:"149",tbmoney:"199",tburl:"https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.1.78f33e44SnUaav&id=558286318898&skuId=3634204511162&areaId=330100&user_id=444969165&cat_id=2&is_b=1&rn=2a5f68e6a648c5fe212ae2c79ea2c0e4"},
+                    {name:"博朗生活HM3000打蛋机",url:"img/13.jpg",ngmoney:"239",tbmoney:"289",tburl:"https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.1.3f9c3e09PrjV1L&id=525349304324&skuId=3217776759891&areaId=330100&user_id=1911588863&cat_id=2&is_b=1&rn=e6ead3d1a8fbf73573bbf125d7967457"},
+                    {name:"Kenwood Hm520打蛋机",url:"img/14.jpg",ngmoney:"219",tbmoney:"320",tburl:"https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.1.754f225auxNamQ&id=37469501276&skuId=3214385363893&areaId=330100&user_id=1120240545&cat_id=2&is_b=1&rn=84904e48010736b769227e9be17d8b08"},
+                    {name:"Kenwood HM220打蛋机",url:"img/15.jpg",ngmoney:"169",tbmoney:"199",tburl:"https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.1.4ce36650w0cYhX&id=40629241476&skuId=3215740840148&areaId=330100&user_id=1120240545&cat_id=2&is_b=1&rn=502ca76cdc26d3418257a88b9ed55c9b"},
+                    {name:"Kenwood SMM650WH华夫饼机",url:"img/16.jpg",ngmoney:"499",tbmoney:"650",tburl:"https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.1.7964666fhDBfkR&id=548597680052&skuId=3494886198627&areaId=330100&user_id=3242371951&cat_id=2&is_b=1&rn=86235112a92896aec2b2fc18a93018c4"},
+                    {name:"Kenwood KMC510厨师机",url:"img/17.jpg",ngmoney:"2560",tbmoney:"3500",tburl:"https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.1.47f45865DIlJvn&id=549633333093&skuId=3352628869294&areaId=330100&user_id=3242371951&cat_id=2&is_b=1&rn=8890e4f680d36512b51fe18768416b0c"},
+                    {name:"KenwoodAid 5QT厨师机",url:"img/18.webp",ngmoney:"2780",tbmoney:"4499"},
+                    {name:"KenwoodAid 7QT厨师机",url:"img/19.jpg",ngmoney:"3999",tbmoney:"6899"},
+                    {name:"KenwoodAid 1585破壁料理机",url:"img/20.jpg",ngmoney:"899",tbmoney:"1399"},
+                    {name:"KRUPS KB2080 迷你搅拌机",url:"img/21.jpg",ngmoney:"399",tbmoney:"680",tburl:"https://detail.tmall.com/item.htm?spm=a220m.1000858.0.0.4498892bzzpch1&id=526925405471&skuId=3703951698435&is_b=1&cat_id=2&q=krups+%BD%C1%B0%E8%BB%FA"}
                 ]
             }
         }

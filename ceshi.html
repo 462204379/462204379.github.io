@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="numb"></div>
+<script src="../js/jquery.min.js"></script>
+<script>
+    var datas="";
+     $.ajax({
+     url: 'http://101.37.247.220/reports/api/v2.0/Folders(2cd41395-fc9f-45cb-83d7-8cd7e254bcf0)/Policies',
+     type: 'get',
+     async: false,
+     success: function (res) {
+     datas=res.Policies;
+      //datas=JSON.stringify(datas)
+     }
+     })
+    datas.push({
+        GroupUserName: "iZbp15lfedxsvlZ\\10005_员工5",
+        Roles: [{Name: "浏览者", Description: "可以查看文件夹、报表和订阅报表。"}]
+    })
+    var datass={
+        InheritParentPolicy: false,
+        Policies:datas
+    }
+     $.ajax({
+     url: 'http://101.37.247.220/reports/api/v2.0/Folders(2cd41395-fc9f-45cb-83d7-8cd7e254bcf0)/Policies',
+     contentType: "application/json",
+     type: 'put',
+     data:JSON.stringify(datass),
+     success: function (res) {
+     console.log(res)
+     }
+     })
+
+</script>
+</body>
+</html>

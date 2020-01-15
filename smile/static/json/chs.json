@@ -1,0 +1,69 @@
+{
+  "heardlan": {
+    "placeholder":"SmileMax惠笑天猫旗舰店",
+    "language": "中",
+    "language1": "中文",
+    "language2": "English",
+    "language3": "한국어"
+  },
+  "banner":[
+    {"url":"./static/img/carouselOneA1.jpg"},{"url":"./static/img/carouselOneA2.jpg"},{"url":"./static/img/carouselOneA3.jpg"}
+  ],
+  "video": {
+    "value1":"重 新 定 义",
+    "value2":"牙 齿 美 白 新 美 学",
+    "value3":"SmileMax",
+    "value4":[" 旨在重新定义社交时代牙","齿美白新美学打造属于每个人的","明星时刻闪耀人生态度。"]
+  },
+  "article_1":{
+    "value1":"我 用 微 笑 / 继 续 骄 傲",
+    "value2":[
+      [{"url":"./static/img/carouselTwo1.jpg","name":"闪耀洁白牙贴","text":"TEETH WHITENING STRIPS"},
+        {"url":"./static/img/carouselTwo2.jpg","name":"闪耀美牙仪","text":"TEETH WHITENING ACCELERATOR"},
+        {"url":"./static/img/carouselTwo3.jpg","name":"随身美牙笔","text":"TEETH WHITENING PEN"}]
+    ]
+  },
+  "article_2":{
+    "value1":"闪耀洁白牙贴",
+    "value2":"TEETH WHITENING STRIPS",
+    "value3":"7 对  /  14 贴  /  椰 子 味",
+    "value4":"立即购买"
+  },
+  "article_3":{
+    "value1":"自 然 白",
+    "value2":"Natural white",
+    "value3":"含 过 氧 化 氢 ≤ 3%",
+    "value4":"温 和 配 方",
+    "value5":"还 原 牙 齿 自 然 白 度",
+    "value6":"透 明 凝 胶",
+    "value7":"隐 形 贴 合 设 计",
+    "value8":"Invisible fit",
+    "value9":"隐 形 贴 合"
+  },
+  "article_4":{
+    "value1":"在家享受美容院级的牙齿护理",
+    "value2":"ENJOYING THE TEE TEETH SPA AT HOME",
+    "value3":"闪耀美牙仪",
+    "value4":"即将上市",
+    "value5":"随时随地亮白牙齿",
+    "value6":"WHITEN YOUR TEETH ANYTIME,",
+    "value7":"ANYWHERE",
+    "value8":"随身美牙笔",
+    "value9":"即将上市"
+  },
+  "footerText":{
+    "value1":"线上商城",
+    "value2":"SmileMax惠笑天猫旗舰店",
+    "value3":"浙ICP备15006544号-5",
+    "value4":"公司 / ",
+    "value5":"惠笑(杭州)生物科技有限公司",
+    "value6":"地址 / ",
+    "value7":"杭州经济科技开发区白杨街道科技园路2号5幢3层",
+    "value8":"联系我们 / ",
+    "value9":"+0571-8895 9273",
+    "value10":"品牌合作 / ",
+    "value11":"zq@sowow.com",
+    "value12":"关注我们 / ",
+    "value13":"关注我们："
+  }
+}

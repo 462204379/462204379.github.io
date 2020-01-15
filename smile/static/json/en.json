@@ -1,0 +1,69 @@
+{
+  "heardlan": {
+    "placeholder":"SmileMax Tmall flagship store",
+    "language": "EN",
+    "language1": "中文",
+    "language2": "English",
+    "language3": "한국어"
+  },
+  "banner":[
+    {"url":"./static/img/carouselOneB1.jpg"},{"url":"./static/img/carouselOneB2.jpg"},{"url":"./static/img/carouselOneB3.jpg"}
+  ],
+  "video": {
+    "value1":"REDEFINING",
+    "value2":["THE AESTHETIC OF","WHITENING TEETH"],
+    "value3":"SmileMax",
+    "value4":[" is devoted to create a","series of unique products which","can help users more confidence to","show their smiles."]
+  },
+  "article_1":{
+    "value1":"I SMILE , CONTINUE TO PRIDE",
+    "value2":[
+      [{"url":"./static/img/carouselTwo1.jpg","name":"WHITENING STRIPS","text":"TEETH"},
+        {"url":"./static/img/carouselTwo2.jpg","name":"WHITENING ACCELERATOR","text":"TEETH"},
+        {"url":"./static/img/carouselTwo3.jpg","name":"WHITENING PEN","text":"TEETH"}]
+    ]
+  },
+  "article_2":{
+    "value1":"TEETH WHITENING",
+    "value2":"STRIPS",
+    "value3":"7 pairs /14 stickers/coconut flavor",
+    "value4":"SHOP NOW"
+  },
+  "article_3":{
+    "value1":"NATURAL WHITE",
+    "value2":"NATURAL WHITE",
+    "value3":"Hydrogen peroxide is less than or equal to 3%",
+    "value4":"The gentle formula",
+    "value5":"keeps teeth natural whiteness",
+    "value6":"SmileMax fluid",
+    "value7":"Invisible fit design",
+    "value8":"Invisible fit",
+    "value9":"INVISIBLE FIT"
+  },
+  "article_4":{
+    "value1":["ENJOYING","THE TEETH SPA AT HOME"],
+    "value2":"TEETH WHITENING ACCELERATOR",
+    "value3":"7 pairs /14 stickers/coconut flavor",
+    "value4":"COMING SOON",
+    "value5":["WHITEN YOUR","TEETH ANYTIME,","ANYWHERE"],
+    "value6":"WHITEN YOUR TEETH ANYTIME,",
+    "value7":"NYWHERE",
+    "value8":"TEETH WHITENING PEN",
+    "value9":"COMING SOON"
+  },
+  "footerText":{
+    "value1":"ONLINE STORE",
+    "value2":"SmileMax Tmall flagship store",
+    "value3":"Zhejiang Internet Content Provider record number15006544-5",
+    "value4":"COMPANY / ",
+    "value5":"SmileMax (Hangzhou)Biological Technology Co., Ltd",
+    "value6":"ADDRESS / ",
+    "value7":"3F,Building 5 Leo,Singapore-Hangzhou Science & Technology Park(SHSTP), No. 2 Kejiyuan Road, Xiasha, Hangzhou, China.",
+    "value8":"CONTRACT US / ",
+    "value9":"+86-181 0655 4948",
+    "value10":"BRAND COOPERATION / ",
+    "value11":"zq@sowow.com",
+    "value12":"FOLLOW US / ",
+    "value13":"FOLLOW US： "
+  }
+}

@@ -227,7 +227,7 @@
                 </div>
                 <el-form @change="updataform" ref="formData" :model="formData" label-width="60px" label-position="left" size="mini" style="overflow: auto;" :style="{'height':mainHeight-70+'px'}">
                     <el-form-item label="名称">
-                        <el-input v-model="formData.layerName" @focus="guangbiao=true" @blur="guangbiao=false" @change="numberIndex_b += 1,cunchuData()"></el-input>
+                        <el-input v-model="formData.layerName" @focus="guangbiao=true" @blur="guangbiao=false" @change="numberIndex_b += 1,cunchuData()" :disabled="true"></el-input>
                     </el-form-item>
                     <el-form-item label="长">
                         <el-input-number v-model="formData.width" @change="loadImage('-1',thisdata),cunchuData(),numberIndex_b += 1" label="长" @focus="guangbiao=true" @blur="guangbiao=false"></el-input-number>
@@ -276,7 +276,7 @@
                 </div>
                 <el-form @change="updataform" ref="formData" :model="formData" label-width="60px" label-position="left" size="mini" style="overflow: auto;" :style="{'height':mainHeight-70+'px'}">
                     <el-form-item label="名称">
-                        <el-input v-model="formData.layerName" @focus="guangbiao=true" @blur="guangbiao=false" @change="numberIndex_b += 1,cunchuData()"></el-input>
+                        <el-input v-model="formData.layerName" @focus="guangbiao=true" @blur="guangbiao=false" @change="numberIndex_b += 1,cunchuData()" :disabled="true"></el-input>
                     </el-form-item>
                     <el-form-item label="文案">
                         <el-input v-model="formData.textContent" @focus="guangbiao=true" @blur="guangbiao=false" @change="numberIndex_b += 1,cunchuData()"></el-input>
@@ -617,7 +617,7 @@ import { VueCropper }  from 'vue-cropper'
 import matirialItem from "../items/matirialItem.vue";
 import {
     images_upload,
-    download_model,//下载图片
+    download_model_photo,//下载图片
     save_modify_record,//储存记录
     query_modify_record,//提取记录
     resizeImage,//智能裁剪
@@ -722,7 +722,7 @@ export default {
                 topBox: "10",
                 fontColor: "#000",
                 id: "",
-                modelId: "",
+                photoId: "",
                 fontSize: "20",
                 fontSpacing: 0,
                 opacity: 100,
@@ -737,7 +737,7 @@ export default {
                 active: true
             },
             addimgVal: {
-                modelId: "",
+                photoId: "",
                 layerName: "请输入名称",
                 imageUrl: "",
                 text: "",
@@ -1240,8 +1240,8 @@ export default {
             let form = {
                 photoId: this.modelId
             };
-            this.addtextVal.modelId = this.modelId;
-            this.addimgVal.modelId = this.modelId;
+            this.addtextVal.photoId = this.photoId;
+            this.addimgVal.photoId = this.photoId;
             queryPhotoItemList(form)
                 .then(response => {
                     let fonttishi = true;
@@ -1835,7 +1835,7 @@ export default {
             });
             that.yulanType = true;
             that.yulanUrl = "";
-            download_model(itemlist)
+            download_model_photo(itemlist)
                 .then(response => {
                     blob_base64(response, function callback(val){
                         that.yulanUrl = val;
@@ -1853,7 +1853,7 @@ export default {
                 }
                 itemlist.push(item);
             });
-            download_model(itemlist)
+            download_model_photo(itemlist)
                 .then(response => {
                     this.download(response)
                 })

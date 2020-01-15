@@ -150,6 +150,14 @@ export function download_model(formdata) {
         data: formdata
     });
 }//下载单张图片
+export function download_model_photo(formdata) {
+    return axios({
+        url: "/wow/sys/photo/download_photo",
+        method: "post",
+        responseType: 'blob',
+        data: formdata
+    });
+}//我的作品，修改，下载/预览单张图片
 export function stand_up_and_down(formdata) {
     return axios({
         url: "/wow/sys/home/stand_up_and_down",

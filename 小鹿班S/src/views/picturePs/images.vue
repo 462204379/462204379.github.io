@@ -8,7 +8,7 @@
              element-loading-spinner="el-icon-loading">
             <el-row style="display: flex;align-items: center;border: 1px solid #ebeef5;border-bottom: none;" v-if="indexId==0">
                 <el-col :span="4" style="text-align: center;">
-                    常量
+                    不修改
                 </el-col>
                 <el-col :span="20" style="border-left: 1px solid #ebeef5;">
                     <div v-for="(item, index) in formData[indexId]" :key="index" style="align-items: center;display: flex;padding: 10px" v-if="list1.indexOf(item.layerNum) != '-1'">
@@ -27,7 +27,7 @@
             </el-row>
             <el-row style="display: flex;align-items: center;border: 1px solid #ebeef5;">
                 <el-col :span="4" style="text-align: center;">
-                    变量
+                    可修改
                 </el-col>
                 <el-col :span="20" style="border-left: 1px solid #ebeef5;">
                     <div v-for="(item, index) in formData[indexId]" :key="index" style="align-items: center;display: flex;padding: 10px" v-if="list2.indexOf(item.layerNum) != '-1'">
@@ -93,11 +93,11 @@
         </div>
         <el-dialog title="预览" :visible.sync="dialogTableVisible">
             <div v-loading="loading">
-                <div class="demo-image__preview" v-for="(item,index) in yulanImg" :key="index" style="float: left;margin-right: 10px;width: 25%;">
-                    <el-image style="width: 100%; height: auto;" :src="item" :preview-src-list="yulanList[index]" fit="fill"></el-image>
+                <div class="demo-image__preview" v-for="(item,index) in yulanImg" :key="index" style="float: left;margin-right: 10px;width: 23.5%;height: 150px;border: 1px solid #ccc;margin-bottom: 10px;">
+                    <el-image :fit="'contain'" style="width: 100%;height: 100%;" :src="item" :preview-src-list="yulanList[index]"></el-image>
                 </div>
-                <div style="clear: both"></div>
             </div>
+            <div style="clear: both;"></div>
         </el-dialog>
         <div v-if="caijian" style="    position: fixed;width: 100%;height: 100%;background: rgb(0, 0, 0);opacity: 0.6;z-index: 99998;top: 100px;"></div>
         <transition name="el-zoom-in-top">
@@ -162,6 +162,9 @@
         resizeImage,
         images_upload
     } from "../../api/picturePs/home";
+    import {
+        getYulanList,
+    } from "../../utils/public";
     import {
         queryBrand,
     } from "../../api/auth/picturePs";
@@ -496,12 +499,13 @@
                         } else {
                             this.loading = false;
                             let yulanImg =[];
+                            let imglist =[];
                             response.data.map((item,index)=>{
-                                let imglist = [item];
-                                yulanImg.push(imglist)
+                                imglist.push(item);
+                                yulanImg.push([]);
                             });
-                            this.yulanList = yulanImg;
-                            this.yulanImg = response.data;
+                            this.yulanList = getYulanList(imglist,yulanImg);
+                            this.yulanImg = imglist;
                         }
                     })
                     .catch(() => {});

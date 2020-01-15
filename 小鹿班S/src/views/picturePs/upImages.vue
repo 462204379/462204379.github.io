@@ -18,7 +18,7 @@
                                     <div class="th bg">
                                         <div class="td2">图层编号</div>
                                         <div class="td3">图层名称</div>
-                                        <div class="td1"><el-checkbox v-model="checkAll" :indeterminate="isIndeterminate" @change="handleCheckAllChange">常量</el-checkbox></div>
+                                        <div class="td1"><el-checkbox v-model="checkAll" :indeterminate="isIndeterminate" @change="handleCheckAllChange">不修改</el-checkbox></div>
                                     </div>
                                     <div class="tr bg" v-if="indexData.logo.length != 0">
                                         <div class="leftForm-left td2">
@@ -207,6 +207,7 @@
                                 <div @click="item.templateData.isNumber=1,rightIndex=index" class="noNumber" :class="{'isBianji':item.templateData.isNumber==1}">{{index+1}}</div>
                                 <div class="indexBianji" v-show="rightIndex == index"></div>
                             </div>
+                            <div style="color: rgb(229, 28, 35);">点击左边数字确认图层关系</div>
                         </div>
                     </el-card>
                 </el-col>

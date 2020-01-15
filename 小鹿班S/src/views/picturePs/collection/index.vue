@@ -1022,7 +1022,7 @@
                 if (this.listdata[this.thisdataid].layerName.indexOf("产品图") != -1) {
                     this.listdata[this.thisdataid].layerName = "产品图-" + val.name;
                 }
-                this.listdata[this.thisdataid].imageUrl = val;
+                this.listdata[this.thisdataid].imageUrl = val.url;
                 this.numberIndex_b += 1;
                 this.cunchuData();
             },

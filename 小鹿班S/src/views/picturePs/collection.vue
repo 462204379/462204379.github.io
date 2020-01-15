@@ -710,9 +710,9 @@ export default {
             val.map(item => {
                 if(item.select) {
                     formList.push(item.id)
-                }
-                if(item.status == 2) {
-                    submit = false;
+                    if(item.status == 2) {
+                        submit = false;
+                    }
                 }
             });
             if (formList.length === 0) {

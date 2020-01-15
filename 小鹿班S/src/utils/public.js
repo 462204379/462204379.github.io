@@ -68,3 +68,16 @@ export function getFileSize(fileByte) {
     else fileSizeMsg = "文件超过1TB";
     return fileSizeMsg;
 }
+
+//elementUI预览封装
+export function getYulanList(imglist,yulanlist) { //imglist:所有图片   yulanList:预览的多个空数组
+    let yulanList = yulanlist;
+    imglist.map((item,index)=>{
+        let container = imglist;
+        let frontArr = container.slice(0, index);
+        let behindArr = container.slice(index, imglist.length);
+        let list = behindArr.concat(frontArr);
+        yulanList[index] = list;
+    });
+    return yulanList;
+}

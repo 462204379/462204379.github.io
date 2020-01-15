@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .text{
+            position: absolute;
+            left: 168px;
+            top: 62px;
+            color: rgb(0, 40, 85);
+            font-size: 123.01px;
+            opacity: 1;
+            z-index: 383;
+            font-family: ".Gilroy-Bold";
+            float: left;
+            display: inline-block;
+            box-sizing: inherit;
+            padding-right: 10px;
+        }
+        .outer{
+            width: 100px;
+            height:200px;
+            border:2px solid red;
+        }
+
+        .inner{
+            width:100%;
+            height:100%;
+            /*border:1px solid #000;*/
+        }
+        .outer:hover{
+            cursor: s-resize;
+        }
+
+        .inner:hover{
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" style="border: 1px solid #ccc;width: 600px;height: 300px;">
+        您的浏览器不支持 HTML5 canvas 标签。
+    </canvas>
+<button onclick="f1()">aaa</button>
+</body>
+<script>
+    var c=document.getElementById("myCanvas");
+    c.width = "600";
+    c.height = "300";
+    var context =c.getContext("2d");
+    context.font="40px 方正正黑简体";
+    context.fillText("Play 直降1300",0,40);
+    context.font="48px 微软雅黑 Bold";
+    context.fillText("直降1300",10,150);
+    context.stroke(); //执行绘制
+    context.restore();
+    function f1(){
+        c.width = "600";
+        c.height = "300";
+        context.font="20pxpx Arial";
+        context.fillText("Hello World",0,20);
+        context.font="48px 微软雅黑 Bold";
+        context.fillText("直降1300",10,150);
+        context.stroke(); //执行绘制
+        context.restore();
+    }
+</script>
+</html>
